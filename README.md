@@ -1,2 +1,1 @@
-# climate
-Climate Warming &amp; Global Change
+# Climate Warming & Global Change
