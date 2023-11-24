@@ -1,4 +1,4 @@
 pip
 pandas
-matplotlib.pyplot
+matplotlib
 seaborn
