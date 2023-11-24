@@ -2,4 +2,3 @@ pip
 pandas
 matplotlib.pyplot
 seaborn
-streamlit
