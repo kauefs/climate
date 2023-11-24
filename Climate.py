@@ -3,7 +3,6 @@ import pandas              as pd
 import matplotlib.pyplot   as plt
 import seaborn             as sns
 import streamlit           as st
-from   datetime  import datetime
 st.set_page_config(page_title='CW&GC', page_icon='🔥', initial_sidebar_state='collapsed')
 # DATA:
 DATA        = 'datasets/CampinasSP.csv'
