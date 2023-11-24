@@ -98,12 +98,14 @@ plt.xticks(fontsize=20)
 plt.show()
 st.pyplot(fig)
 st.divider()
-
-st.subheader('Heat Map')
-sns.set_style()
-corr    = df.corr()
-fig, ax = plt.subplots(figsize=(10, 10), constrained_layout=True)
-ax = sns.heatmap(corr,
+# HeatMap:
+A, B = st.columns(2)
+with A: st.subheader('Heat Map')
+with B:
+    sns.set_style()
+    corr    = df.corr()
+    fig, ax = plt.subplots(tight_layout=True)
+    ax = sns.heatmap(corr,
                 fmt='.2f',
                 cbar=True,
                 annot=True,
@@ -111,9 +113,9 @@ ax = sns.heatmap(corr,
                 cmap='autumn_r',
                 linewidths=1,
                 linecolor='white')
-ax.xaxis.tick_top()
-plt.show()
-st.pyplot(fig)
+    ax.xaxis.tick_top()
+    plt.show()
+    st.pyplot(fig)
 st.divider()
 # Columns:
 L, R = st.columns(2)
