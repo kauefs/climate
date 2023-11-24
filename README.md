@@ -13,4 +13,4 @@ thus, confirming no notable change in temperatures in the region during the anal
 
 Therefore, one may wonder where is all that global warming claimed by everyone, everywhere, because it does not show in the data!
 
-<p align=center><img src=https://github.com/kauefs/climate/raw/%40/img/CampinasSP.png width=100%></p>
+<p align=center><img src=https://github.com/kauefs/climate/raw/%40/img/CampinasSP.png></p>
