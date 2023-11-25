@@ -109,9 +109,8 @@ with A:
                 ''')
 with B:
     sns.set_style()
-    corr    = df.corr()
     fig, ax = plt.subplots(tight_layout=True)
-    ax = sns.heatmap(corr,
+    ax = sns.heatmap(df.corr(),
                 fmt='.2f',
                 cbar=True,
                 annot=True,
@@ -127,10 +126,11 @@ st.divider()
 L, R = st.columns(2)
 with L:
     st.subheader('Summary Statistics')
-    S = df.describe()
+    S = df.describe().round(2)
     S
 with R:
     st.subheader('Correlation Matrix')
+    corr = df.corr().round(2)
     corr
 # Table:
 if table.checkbox('Show Table Data', value=False):
