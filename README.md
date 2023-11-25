@@ -7,7 +7,7 @@
 
 23 November 2023
 
-After observing a climate series from 1998 to 2014 for the city of Campinas/SP, in Brazil, it is hard to see, from the data, any temperature anomaly. Minimum and maximum temperatures have been stable, with close mean and median, resulting, as consequence, in a small standard deviation, which is further confirmed by the small distance among the quantiles, thus, confirming no notable change in temperatures in the region during the analyzed period.
+After observing a climate series from 1998 to 2014 for the city of Campinas/SP, in Brazil, it is hard to see, from the data, any temperature anomaly. Minimum and maximum temperatures have been stable, with close mean and median, resulting, as consequence, in a small standard deviation, which is further verified by the small distance among the quantiles, thus, confirming no notable change in temperatures in the region during the analyzed period.
 
 Therefore, one may wonder where is all that global warming claimed by everyone, everywhere, because it does not show in the data!
 
