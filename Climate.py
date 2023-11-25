@@ -100,7 +100,13 @@ st.pyplot(fig)
 st.divider()
 # HeatMap:
 A, B = st.columns(2)
-with A: st.subheader('Heat Map')
+with A:
+    st.subheader('Heat Map')
+    st.markdown('''
+                As it can be clearly seen, there is a loose correlation of about 50% between temperature and precipitation,
+                meaning high temperatures do not automatically translate to more rain,
+                as it can be observed in places with severe drought around the world.
+                ''')
 with B:
     sns.set_style()
     corr    = df.corr()
