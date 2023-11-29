@@ -5,7 +5,7 @@ import seaborn             as sns
 import streamlit           as st
 st.set_page_config(page_title='CW&GC', page_icon='🔥', initial_sidebar_state='collapsed')
 # DATA:
-DATA        = 'datasets/CampinasSP.csv'
+DATA        = 'datasets/VCP.csv'
 @st.cache_data
 def load_data():
     rename  = {'casos-confirmados'   :'Cases'   ,
@@ -70,7 +70,7 @@ df['MaxTemp'].plot(kind    ='line', ax=ax,
                 linestyle  ='dashed',
                 color      ='maroon') #FF4500
 # Mean    Temperature:
-df['MeanTemp'].plot(kind       ='line', ax=ax,
+df['MeanTemp'].plot(kind   ='line', ax=ax,
                 linewidth  ='3.25',
                 linestyle  ='solid',
                 color      ='#4CAF50')
