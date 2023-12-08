@@ -5,7 +5,7 @@
 [![Python](https://img.shields.io/badge/Python-3-blue.svg)](https://www.python.org/)
 [![License](https://img.shields.io/badge/License-Apache_2.0-black.svg)](https://www.apache.org/licenses/LICENSE-2.0)
 
-23 November 2023
+$$23\ November\ 2023$$
 
 After observing a climate series from 1998 to 2014 for the city of Campinas/SP, in Brazil, it is hard to see, from the data, any temperature anomaly. Minimum and maximum temperatures have been stable, with close mean and median, resulting, as consequence, in a small standard deviation, which is further verified by the small distance among the quantiles, thus, confirming no notable change in temperatures in the region during the analyzed period.
 
