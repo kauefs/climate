@@ -38,10 +38,10 @@ st.sidebar.markdown('''Source: [CIIAGRO](https://ciiagro.sp.gov.br/) – tempera
 table          = st.sidebar.empty()
 st.sidebar.divider()
 with st.sidebar.container():
-     C1,C2,C3  = st.columns(3)
-     with C1:st.empty()
-     with C2:st.markdown('''©2023™''')
-     with C3:st.empty()
+     cols = st.columns(3)
+     with cols[0]:st.empty()
+     with cols[1]:st.markdown('''©2023™''')
+     with cols[2]:st.empty()
 # MAIN:
 st.title(   'In Search of a Warming!')
 st.markdown('''
