@@ -50,7 +50,11 @@ st.markdown('''
 [![Python](https://img.shields.io/badge/Python-3-blue.svg)](https://www.python.org/)
 [![License](https://img.shields.io/badge/License-Apache_2.0-black.svg)](https://www.apache.org/licenses/LICENSE-2.0)
             ''')
-st.write('23 November 2023')
+with st.container():
+     cols = st.columns(3)
+     with cols[0]:st.empty()
+     with cols[1]:st.write('23 November 2023')
+     with cols[2]:st.empty()
 st.markdown('''
 After observing a climate series from 1998 to 2014 for the city of Campinas/SP, in Brazil, it is hard to see, from the data, any temperature anomaly.
 Minimum and maximum temperatures have been stable, with close mean and median, resulting, as consequence, in a small standard deviation,
