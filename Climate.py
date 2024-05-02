@@ -3,7 +3,7 @@ import pandas              as pd
 import matplotlib.pyplot   as plt
 import seaborn             as sns
 import streamlit           as st
-st.set_page_config(page_title='CW&GC', page_icon='🔥', initial_sidebar_state='collapsed')
+st.set_page_config(page_title='CW&GC', page_icon='🔥', layout='wide', initial_sidebar_state='collapsed')
 # DATA:
 DATA        = 'datasets/VCP.csv'
 @st.cache_data
@@ -24,38 +24,31 @@ def load_data():
                'MaxTemp' ,
                'Rain'    ]    
     data    = data[list(columns)]
-    return data
+    return    data
 df          = load_data()
-# SIDEBAR:
-#st.sidebar.header(   'In Search of a Warming!')
-st.sidebar.success(  'Climate Warming')
-st.sidebar.info(     'Global  Change ')
-st.sidebar.divider()
-st.sidebar.subheader('Data   Analysis')
-st.sidebar.markdown('''Source: [CIIAGRO](https://ciiagro.sp.gov.br/) – temperature & precipitation reports from {} to {}'''
-                    .format(df.index.min(), df.index.max()))
-# PlaceHolder for Table:
-table          = st.sidebar.empty()
-st.sidebar.divider()
-with st.sidebar.container():
-     cols = st.columns(3)
-     with cols[0]:st.empty()
-     with cols[1]:st.markdown('''©2023™''')
-     with cols[2]:st.empty()
-# MAIN:
-st.title(   'In Search of a Warming!')
-st.markdown('''
+# SIDE:
+st.sidebar.markdown('''
 [![GitHub](  https://img.shields.io/badge/-000000?logo=github&logoColor=FFFFFF)](                                 https://github.com/kauefs/)
 [![Medium](  https://img.shields.io/badge/-000000?logo=medium&logoColor=FFFFFF)](                                 https://medium.com/@kauefs)
 [![LinkedIn](https://img.shields.io/badge/-0077B5?logo=linkedin&logoColor=FFFFFF)](                               https://www.linkedin.com/in/kauefs/)
 [![Python](  https://img.shields.io/badge/-3-4584B6?logo=python&logoColor=FFDE57&labelColor=4584B6&color=646464)](https://www.python.org/)
-[![License]( https://img.shields.io/badge/Apache_2.0-D22128?style=flat&logo=apache&logoColor=CB2138&label=License&labelColor=6D6E71&color=D22128)](https://www.apache.org/licenses/LICENSE-2.0)
+[![License]( https://img.shields.io/github/license/kauefs/COVID?logo=mit&logoColor=FFFFFF&label=License&labelColor=8B959E&color=750014)](https://web.mit.edu/Saltzer/www/publications/MITLicense.pdf)
             ''')
-with st.container():
-     cols = st.columns(3)
-     with cols[0]:st.empty()
-     with cols[1]:st.write('23 November 2023')
-     with cols[2]:st.empty()
+st.sidebar.text(    '23 November 2023')
+st.sidebar.divider(                   )
+st.sidebar.success(  'Climate Warming')
+st.sidebar.info(     'Global  Change ')
+st.sidebar.divider(                   )
+st.sidebar.subheader('Data   Analysis')
+st.sidebar.markdown('''Source: [CIIAGRO](https://ciiagro.sp.gov.br/) – temperature & precipitation reports from {} to {}'''
+                    .format(df.index.min(), df.index.max()))
+table       = st.sidebar.empty()
+st.sidebar.divider(            )
+st.sidebar.markdown('''©2023™  [ƊⱭȾɅViƧi🧿Ƞ](https://datavision.one/)''')
+# MAIN:
+st.divider(                          )
+st.title(   'In Search of a Warming!')
+st.divider(                          )
 st.markdown('''
 After observing a climate series from 1998 to 2014 for the city of Campinas/SP, in Brazil, it is hard to see, from the data, any temperature anomaly.
 Minimum and maximum temperatures have been stable, with close mean and median, resulting, as consequence, in a small standard deviation,
@@ -137,10 +130,11 @@ with R:
     st.subheader('Correlation Matrix')
     corr = df.corr().round(2)
     corr
-# Table:
-if table.checkbox('Show Table Data', value=False):
-    st.divider()
-    st.subheader('DATA')
-    st.write(    '➡️ Showing temperature & precipitation reports from {} to {}'.format(df.index.min(), df.index.max()))
+st.divider()
+# DataFrame:
+if table.checkbox('DataFrame', value=False):
+    st.subheader( 'DATA')
+    st.write(     '➡️ Showing temperature & precipitation reports from {} to {}'.format(df.index.min(), df.index.max()))
     st.write(df)
+    st.divider()
 st.toast('Climate Terrorism!', icon='🔥')
