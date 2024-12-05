@@ -16,10 +16,10 @@ Therefore, one may wonder where is all that global warming claimed by everyone, 
 
 <!--<p align=center><img src=https://github.com/kauefs/climate/raw/%40/img/CampinasSP.png></p>-->
 
-<p align=center><a href=https://warming.streamlit.app/><img src=https://warming.streamlit.app/~/+/media/9df895c8882bd9d535bab42f13bc042ba2701285e4ea59981fe5b08c.png></a></p>
+<p align=center><a href=https://warming.streamlit.app/ target=_blank rel=noreferrer><img src=https://warming.streamlit.app/~/+/media/9df895c8882bd9d535bab42f13bc042ba2701285e4ea59981fe5b08c.png></a></p>
 
 The heat map below shows there is a loose correlation of about 50% between temperature and precipitation, meaning high temperatures do not automatically translate to more rain, as it can be observed in places with severe drought around the world.
 
 <!--<p align=center><img src=https://github.com/kauefs/climate/raw/%40/img/HeatMap.png width=50%></p>-->
 
-<p align=center><a href=https://warming.streamlit.app/><img src=https://warming.streamlit.app/~/+/media/63351a361602eeb878003be9798a3db42d1e7de857786fab2300fe1a.png width=50%></a></p>
+<p align=center><a href=https://warming.streamlit.app/ target=_blank rel=noreferrer><img src=https://warming.streamlit.app/~/+/media/63351a361602eeb878003be9798a3db42d1e7de857786fab2300fe1a.png width=50%></a></p>
