@@ -8,8 +8,6 @@
 [![Medium               ](https://img.shields.io/badge/Medium-000000?logo=medium&logoColor=FFFFFF      )](https://medium.com/@kauefs)
 [![LinkedIn             ](https://img.shields.io/badge/LinkedIn-2867B2?logo=linkedin&logoColor=FFFFFF    )](https://www.linkedin.com/in/kauefs/)
 
-[![ƊⱭȾɅViƧi🧿Ƞ         ](https://img.shields.io/badge/ƊⱭȾɅViƧi🧿Ƞ&trade;-0065FF?style=plastic&logoColor=0065FF&label=&copy;2025&labelColor=0065FF)](https://datavision.one/)
-
 </div>
 
 $$23\ November\ 2023$$
@@ -27,6 +25,8 @@ The heat map below shows there is a loose correlation of about 50% between tempe
 <!--<p align=center><img src=https://github.com/kauefs/climate/raw/%40/img/HeatMap.png width=50%></p>-->
 
 <p align=center><a href=https://warming.streamlit.app/ target=_blank rel=noreferrer><img src=https://warming.streamlit.app/~/+/media/e5be6b6e2433028ccfd0c3155d748848c8de5ee56eeaf39c1d4479f6.png width=50%></a></p>
+
+##
 
 <div align=center>
 
