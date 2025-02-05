@@ -1,4 +1,7 @@
 pip
+certifi
+numpy
 pandas
 matplotlib
 seaborn
+streamlit<1.42.0
