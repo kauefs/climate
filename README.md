@@ -19,13 +19,13 @@ After observing a climate series from 1998 to 2014 for the city of Campinas/SP, 
 
 Therefore, one may wonder where is all that global warming claimed by everyone, everywhere, because it does not show in the data!
 
-<!--<p align=center><img src=https://github.com/kauefs/climate/raw/%40/img/CampinasSP.png></p>-->
-
-<p align=center><a href=https://warming.streamlit.app/ target=_blank rel=noreferrer><img src=https://warming.streamlit.app/~/+/media/9df895c8882bd9d535bab42f13bc042ba2701285e4ea59981fe5b08c.png></a></p>
+<p align=center><a href=https://warming.streamlit.app/ target=_blank rel=noreferrer>
+<img src=https://github.com/kauefs/climate/raw/%40/img/CampinasSP.png></a></p>
 
 The heat map below shows there is a loose correlation of about 50% between temperature and precipitation, meaning high temperatures do not automatically translate to more rain, as it can be observed in places with severe drought around the world.
 
-<p align=center><a href=https://warming.streamlit.app/ target=_blank rel=noreferrer><img src=https://github.com/kauefs/climate/raw/%40/img/HeatMap.png width=50%></a></p>
+<p align=center><a href=https://warming.streamlit.app/ target=_blank rel=noreferrer>
+<img src=https://github.com/kauefs/climate/raw/%40/img/HeatMap.png width=50%></a></p>
 
 ##
 
