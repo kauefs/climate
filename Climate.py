@@ -128,7 +128,7 @@ st.divider( )
 # Columns
 L, R    =st.columns(2)
 with L:
-    st.subheader('Statistics Summary')
+    st.subheader('Summary Statistics')
     st.dataframe(df.describe( ).round(2), width='stretch')
 with R:
     st.subheader('Correlation Matrix')
