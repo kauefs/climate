@@ -120,7 +120,7 @@ with B:
                           linewidths  =        1 ,
                           linecolor   ='#FFFFFF')
     ax2.xaxis.tick_top( )
-    st .pyplot(fig)
+    st .pyplot(fig2)
 st.divider( )
 # Columns
 L, R    =st.columns(2)
