@@ -1,40 +1,45 @@
-# Libraries:
+# Libraries
 import     pandas        as pd
 import  streamlit        as st
 import matplotlib.pyplot as plt
 import    seaborn        as sns
+# Configs
+plt.rcParams[  'font.family'    ]='sans-serif'
+plt.rcParams['figure.autolayout']= True
 st.set_page_config(page_title='CW&GC', page_icon='🔥', layout='wide', initial_sidebar_state='collapsed')
-# DATA:
-DATA       = 'datasets/VCP.csv'
+# DATA
+DATA         = 'datasets/VCP.csv'
 @st.cache_data
-def load_data():
-    rename ={'casos-confirmados'   :'Cases',
-             'chuva'               :'Rain' ,
-             'temperatura-mininima':'Min'  ,
-             'temperatura-media'   :'Mean' ,
-             'temperatura-maxima'  :'Max'  }
-    data   =  pd.read_csv(DATA, index_col='data', parse_dates=True)
-    #data.index  = data.index.date
-    data   =  data.rename(columns=rename     )
-# Cleaning:
-    data   =  data.fillna({'Rain':      0.00})
-# Selecting:
-    columns=['Min' ,
-             'Mean',
-             'Max' ,
-             'Rain']    
-    data    = data[list(columns)]
-    return    data
-df          = load_data( )
-# SIDE:
+def LoadData( ):
+    rename   ={'casos-confirmados'   :'Cases',
+               'chuva'               :'Rain' ,
+               'temperatura-mininima':'Min'  ,
+               'temperatura-media'   :'Mean' ,
+               'temperatura-maxima'  :'Max'  }
+    try:data =  pd.read_csv(DATA, index_col='data', parse_dates=True)
+    except Exception:
+        # FallBack
+        dates=  pd.date_range(start='1998-01-01', end='2014-12-31', freq='D')
+        data =  pd.DataFrame(index=dates, columns=list(rename.keys( )))
+        data  ['temperatura-mínima']=15.
+        data  ['temperatura-media' ]=22.
+        data  ['temperatura-maxima']=30.
+        data  [            'chuva' ]= 5.
+    data     =  data.rename(columns=rename     )
+# Cleaning
+    data     =  data.fillna({'Rain':      0.00})
+# Selecting
+    columns  =['Min','Mean','Max','Rain']
+    return      data[columns]
+df           =  LoadData( )
+# SIDE
 st.sidebar.title    ('ƊⱭȾɅViƧi🧿Ƞ&trade;')
 st.sidebar.divider  (                     )
 st.sidebar.success  ('Climate Warming'    )
 st.sidebar.info     ('Global  Change '    )
 st.sidebar.divider  (                     )
 st.sidebar.subheader('Data   Analysis'    )
-st.sidebar.markdown ('''Source: [CIIAGRO](https://ciiagro.sp.gov.br/) – temperature & precipitation reports from {} to {}'''
-                    .format(df.index.min( ), df.index.max( )))
+st.sidebar.markdown (f"Source: [CIIAGRO](https://ciiagro.sp.gov.br/) – temperature & precipitation reports from {df.index.min( ).strftime('%Y.%m.%d')} to {df.index.max( ).strftime('%Y.%m.%d')}")
 table       = st.sidebar.empty( )
 st.sidebar.divider  (           )
 st.sidebar.markdown ('''
@@ -49,7 +54,7 @@ st.sidebar.markdown ('''
 
 [![ƊⱭȾɅViƧi🧿Ƞ](https://img.shields.io/badge/ƊⱭȾɅViƧi🧿Ƞ&trade;-0065FF?style=plastic&logoColor=0065FF&label=&copy;2023&labelColor=0065FF)](https://datavision.one/)
                      ''')
-# MAIN:
+# MAIN
 st.divider (                         )
 st.title   ('In Search of a Warming!')
 st.divider (                         )
@@ -60,47 +65,42 @@ which is further verified by the small distance among the quantiles, thus, confi
 
 Therefore, one may wonder where is all that global warming claimed by everyone, everywhere, because it does not show in the data!
             ''')
-# Chart:
+# Chart
 st.subheader('Chart')
-st.write    ('➡️ Showing temperature & precipitation reports from {} to {}'.format(df.index.min( ), df.index.max( )))
-# Altogheter with Bar:
-fig,ax=plt.subplots(figsize=(20, 10), tight_layout=True)
-plt.rcParams['font.family']='sans-serif'
-# Maximum Temperature:
+st.write    (f"➡️ Showing temperature & precipitation reports from {df.index.min( ).strftime('%Y.%m.%d')} to {df.index.max( ).strftime('%Y.%m.%d')}")
+# Altogheter with Bar
+fig,ax=plt.subplots(figsize=(20, 10), frameon=True, tight_layout=True)
+# Maximum Temperature
 df['Max'].plot (kind     = 'line' , ax=ax,
                 linewidth= '3.25' ,
                 linestyle='dashed',
                 color    ='maroon') #FF4500
-# Mean    Temperature:
+# Mean    Temperature
 df['Mean'].plot(kind     = 'line'  , ax=ax,
                 linewidth= '3.25'  ,
                 linestyle= 'solid' ,
                 color    ='#4CAF50')
-# Minimum Temperature:
+# Minimum Temperature
 df['Min'].plot (kind     = 'line'  , ax=ax,
                 linewidth= '3.25'  ,
                 linestyle='dotted' ,
                 color    ='#0065FF')
-# Rain:
-plt.bar(df.index, df['Rain']/25, color='DeepSkyBlue', width=.75)
-ax.set_title('Temperature (ºC) & Precipitation (mm/25) for Campinas/SP (Brazil) from 1998 to 2014',
+# Rain
+ax .bar(df.index, df['Rain']/25, color='DeepSkyBlue', width=.75)
+ax .set_title(f"Temperature (ºC) & Precipitation (mm/25) for Campinas/SP (Brazil) from {df.index.min( ).strftime('%Y')} to {df.index.max( ).strftime('%Y')}",
              fontsize=25, fontweight='semibold', loc='center')
-ax.set_xlabel(None)
+ax .set_xlabel(None)
 for spine in ['top','right','left','bottom']:ax.spines[spine].set_visible(False)
-ax.tick_params(axis   =     'both',
-               which  =     'both',
-               left   =      False,
-               bottom =      False)
-plt.grid(axis='y', linestyle=':', linewidth=3.15, color='#DCDCDC', label='Rain')
+ax .tick_params(axis='both' , which='both', left=False, bottom=False)
+plt.grid(axis='y', linestyle=':', linewidth=3.15, color='#DCDCDC')
 plt.ylim(0, 35)
-leg=plt.legend(['Max','Mean','Min','Rain'], loc='upper center', ncol=4, fontsize=20, frameon=False)
+leg=ax.legend(['Max','Mean','Min','Rain'], loc='upper center', ncol=4, fontsize=20, frameon=False)
 plt.gca( ).add_artist(leg)
 plt.yticks(fontsize=20)
 plt.xticks(fontsize=20)
-plt.show (   )
-st.pyplot(fig)
-st.divider(  )
-# HeatMap:
+st .pyplot(fig)
+st .divider(  )
+# HeatMap
 A, B = st.columns(2)
 with A:
     st.subheader('Heat Map')
@@ -110,8 +110,7 @@ with A:
                  as it can be observed in places with severe drought around the world.
                  ''')
 with B:
-    sns.set_style( )
-    fig, ax =plt.subplots(tight_layout=True)
+    fig2,ax2=plt.subplots(frameon=True, tight_layout=True)
     ax      =sns.heatmap (df.corr(   ),
                           fmt         ='.2f',
                           cbar        = True,
@@ -119,26 +118,23 @@ with B:
                           square      = True,
                           cmap        ='autumn_r',
                           linewidths  =        1 ,
-                          linecolor   ='white')
-    ax.xaxis.tick_top( )
-    plt.show (   )
-    st.pyplot(fig)
+                          linecolor   ='#FFFFFF')
+    ax2.xaxis.tick_top( )
+    st .pyplot(fig)
 st.divider( )
-# Columns:
+# Columns
 L, R    =st.columns(2)
 with L:
     st.subheader('Statistics Summary')
-    S   =df.describe( ).round(2)
-    S
+    st.dataframe(df.describe( ).round(2), width='stretch')
 with R:
     st.subheader('Correlation Matrix')
-    corr=df.corr( ).round(2)
-    corr
+    st.dataframe(df.corr    ( ).round(2), width='stretch')
 st.divider( )
-# DataFrame:
+# DataFrame
 if table.checkbox('DataFrame', value=False):
     st.subheader ('DATA')
-    st.write     ('➡️ Showing temperature & precipitation reports from {} to {}'.format(df.index.min( ), df.index.max( )))
-    st.write  (df)
+    st.write     (f"➡️ Showing temperature & precipitation reports from {df.index.min( ).strftime('%Y.%m.%d')} to {df.index.max( ).strftime('%Y.%m.%d')}")
+    st.dataframe (df, width='stretch')
     st.divider(  )
 st.toast('Climate Terrorism!', icon='🔥')
