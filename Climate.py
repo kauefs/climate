@@ -118,8 +118,11 @@ with B:
                           square      = True,
                           cmap        ='autumn_r',
                           linewidths  =        1 ,
-                          linecolor   ='#FFFFFF')
+                          linecolor   ='#FFFFFF',
+                          ax          = ax2)
     ax2.xaxis.tick_top( )
+    ax2.tick_params(axis='both', which='both', length=0)
+    ax2.collections[0].colorbar.ax.tick_params(length=0)
     st .pyplot(fig2)
 st.divider( )
 # Columns
